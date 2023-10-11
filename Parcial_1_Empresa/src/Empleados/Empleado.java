@@ -9,30 +9,18 @@ package Empleados;
  * @author IngSis
  */
 public abstract class Empleado {
-    private double SalarioBase;
-    String nombre;
-  
-    public Empleado(double SalarioBase, String nombre) {
-        this.SalarioBase = SalarioBase;
+
+    protected String nombre;
+    protected double salarioBase;
+
+    public Empleado(String nombre, double salarioBase) {
         this.nombre = nombre;
-    }
-
-    public double getSalarioBase() {
-        return SalarioBase;
-    }
-
-    public void setSalarioBase(double SalarioBase) {
-        this.SalarioBase = SalarioBase;
+        this.salarioBase = salarioBase;
     }
 
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    
-       
     public abstract double calcularSalario();
 }

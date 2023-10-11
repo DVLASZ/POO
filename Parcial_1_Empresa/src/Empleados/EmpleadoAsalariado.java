@@ -1,16 +1,20 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Empleados;
 
-public abstract class EmpleadoAsalariado extends Empleado {
+/**
+ *
+ * @author IngSis
+ */
+public class EmpleadoAsalariado extends Empleado {
 
-    private double deducciones;
-    private double salarioFijo;
-    private double SalarioRecibido;
+    double deducciones;
 
-    public EmpleadoAsalariado(double deducciones, double salarioFijo, double SalarioRecibido, double SalarioBase, String nombre) {
-        super(SalarioBase, nombre);
+    public EmpleadoAsalariado(String nombre, double salarioBase, double deducciones) {
+        super(nombre, salarioBase);
         this.deducciones = deducciones;
-        this.salarioFijo = salarioFijo;
-        this.SalarioRecibido = SalarioRecibido;
     }
 
     public double getDeducciones() {
@@ -21,37 +25,37 @@ public abstract class EmpleadoAsalariado extends Empleado {
         this.deducciones = deducciones;
     }
 
-    public double getSalarioFijo() {
-        return salarioFijo;
-    }
-
-    public void setSalarioFijo(double salarioFijo) {
-        this.salarioFijo = salarioFijo;
-    }
-
-    public double getSalarioRecibido() {
-        return SalarioRecibido;
-    }
-
-    public void setSalarioRecibido(double SalarioRecibido) {
-        this.SalarioRecibido = SalarioRecibido;
-    }
-
     @Override
     public String getNombre() {
         return nombre;
     }
 
-    @Override
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public double calcularSalario(double salarioFijo, double deducciones) {
-        salarioFijo= 1000000;
-        deducciones= 100000;
-        return SalarioRecibido = salarioFijo - deducciones;
-        
+    public double getSalarioBase() {
+        return salarioBase;
     }
 
+    public void setSalarioBase(double salarioBase) {
+        this.salarioBase = salarioBase;
+    }
+
+    @Override
+    public double calcularSalario() {
+        return salarioBase - deducciones;
+    }
+
+    @Override
+    public String toString() {
+        String etiqueta
+                = "-------------------------------------------------"
+                + "\nNombre del EmpleadoAsalariado: " + nombre
+                + "\nCon un salario Base de: " + salarioBase
+                + " COP\nY sus deducciones son de: " + deducciones
+                + "COP\nEl salario total queda en: " + calcularSalario()
+                + "COP\n-------------------------------------------------";
+        return etiqueta;
+    }
 }

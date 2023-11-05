@@ -10,36 +10,11 @@ package Empleados;
  */
 public class EmpleadoAsalariado extends Empleado {
 
-    double deducciones;
+    private final double deducciones;
 
     public EmpleadoAsalariado(String nombre, double salarioBase, double deducciones) {
         super(nombre, salarioBase);
         this.deducciones = deducciones;
-    }
-
-    public double getDeducciones() {
-        return deducciones;
-    }
-
-    public void setDeducciones(double deducciones) {
-        this.deducciones = deducciones;
-    }
-
-    @Override
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public double getSalarioBase() {
-        return salarioBase;
-    }
-
-    public void setSalarioBase(double salarioBase) {
-        this.salarioBase = salarioBase;
     }
 
     @Override
@@ -49,13 +24,12 @@ public class EmpleadoAsalariado extends Empleado {
 
     @Override
     public String toString() {
-        String etiqueta
-                = "-------------------------------------------------"
-                + "\nNombre del EmpleadoAsalariado: " + nombre
-                + "\nCon un salario Base de: " + salarioBase
-                + " COP\nY sus deducciones son de: " + deducciones
-                + "COP\nEl salario total queda en: " + calcularSalario()
-                + "COP\n-------------------------------------------------";
-        return etiqueta;
+        String label
+                = "Nombre del empleado asalariado:" + nombre
+                + "\nTiene un salario base de: " + salarioBase
+                + "COP\nSus deducciones son de: " + deducciones
+                + "\nEl salario total devengado es: " + calcularSalario();
+        return label;
     }
+
 }

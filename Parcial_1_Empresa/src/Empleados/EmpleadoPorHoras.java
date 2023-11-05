@@ -1,39 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Empleados;
 
-/**
- *
- * @author IngSis
- */
 public class EmpleadoPorHoras extends Empleado {
 
-    int horasTrabajadas;
-    double tarifaPorHora;
+    private int horasTrabajadas;
+    private double tarifaPorHora;
 
-    public EmpleadoPorHoras(String nombre, double salarioBase, int horasTrabajadas, double tarifaPorHora) {
-        super(nombre, salarioBase);
+    public EmpleadoPorHoras(String nombre, int horasTrabajadas, double tarifaPorHora) {
+        super(nombre, 0);
         this.horasTrabajadas = horasTrabajadas;
         this.tarifaPorHora = tarifaPorHora;
-    }
-
-    @Override
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public double getSalarioBase() {
-        return salarioBase;
-    }
-
-    public void setSalarioBase(double salarioBase) {
-        this.salarioBase = salarioBase;
     }
 
     public int getHorasTrabajadas() {
@@ -54,17 +29,16 @@ public class EmpleadoPorHoras extends Empleado {
 
     @Override
     public double calcularSalario() {
-        return this.horasTrabajadas * this.tarifaPorHora;
+        return tarifaPorHora * horasTrabajadas;
     }
 
     @Override
     public String toString() {
         String label
-                = "Nombre del Empleado que trabaja por horas: " + nombre
-                + "\nSu precio por hora equivale a: " + tarifaPorHora
-                + "COP\nY las horas que ha trabajado son: " + horasTrabajadas
-                + "\nDando como resultado un salario de: " + calcularSalario() + "COP"
-                + "\n-------------------------------------------------";
+                = "Nombre del empleado que trabaja por horas: " + nombre
+                + "\nSu tarifa por hora equivale a: " + tarifaPorHora
+                + "\nLas horas que ha trabajado son: " + horasTrabajadas
+                + "\nSu salario devengado es de: " + calcularSalario();
         return label;
     }
 
